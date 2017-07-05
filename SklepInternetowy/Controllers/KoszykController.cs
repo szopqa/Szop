@@ -6,23 +6,18 @@ using System.Web.Mvc;
 
 namespace SklepInternetowy.Controllers
 {
-    public class KursyController : Controller
+    public class KoszykController : Controller
     {
-        // GET: Kursy
+        // GET: Koszyk
         public ActionResult Index()
         {
             return View();
         }
 
-		public ActionResult Lista ( string nazwaKategorii )
+
+		public ActionResult DodajDoKoszyka ( string id )
 		{
 			return View ( );
 		}
-
-		public ActionResult Szczegoly ( string id )
-		{
-			return View ( );
-		}
-
     }
 }

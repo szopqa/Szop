@@ -202,6 +202,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KoszykController.cs" />
     <Compile Include="Controllers\KursyController.cs" />
     <Compile Include="DAL\KursyInitializer.cs" />
     <Compile Include="DAL\KursyContext.cs" />
@@ -210,6 +211,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201706301832191_InitialCreate.cs" />
     <Compile Include="Migrations\201706301832191_InitialCreate.Designer.cs">
       <DependentUpon>201706301832191_InitialCreate.cs</DependentUpon>
@@ -247,6 +249,7 @@
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
     <Content Include="Views\Kursy\Lista.cshtml" />
+    <Content Include="Views\Koszyk\DodajDoKoszyka.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

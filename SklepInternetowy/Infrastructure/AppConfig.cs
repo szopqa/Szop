@@ -12,14 +12,23 @@ namespace SklepInternetowy.Infrastructure
 	/// </summary>
 	public class AppConfig
 	{
-		private static string _ikonyKategoriiFolderWzgledny = ConfigurationManager.AppSettings{"IkonyKategoriiFolder";
+		private static string _ikonyKategoriiFolderWzgledny = ConfigurationManager.AppSettings["IkonyKategoriiFolder"];
 
 		public static string IkonyKategoriiFolderWzgledny
 		{
-			get
-			{
+			get{
 				return _ikonyKategoriiFolderWzgledny;
 			}
 		}
+
+		private static string _obrazkiFolderWzgledny = ConfigurationManager.AppSettings["ObrazkiFolder"];
+		public static string ObrazkiFolderWzgledny
+		{
+			get {
+				return _obrazkiFolderWzgledny;
+			}
+		}
+
+
 	}
 }
