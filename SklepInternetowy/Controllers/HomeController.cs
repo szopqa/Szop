@@ -1,5 +1,7 @@
 ﻿using SklepInternetowy.DAL;
 using SklepInternetowy.Models;
+using SklepInternetowy.ViewModels;
+using System;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,9 +16,22 @@ namespace SklepInternetowy.Controllers
         public ActionResult Index() 
         {
 
-			var listaKategorii = db.Kategorie.ToList ( );
+			var kategorie = db.Kategorie.ToList ( );
 
-            return View();
+			//Taking 3 courses with flag != Hidden added last
+			var nowosci = db.Kursy.Where ( a => !a.Ukryte ).OrderByDescending ( a => a.DataDodania ).Take(3);
+
+			var bestseller = db.Kursy.Where ( a => !a.Ukryte && a.Bestseller ).OrderBy(a =>	Guid.NewGuid()).Take(3).ToList();
+
+			var vm = new HomeViewModel ( )
+			{
+				Kategorie = kategorie,
+				Bestsellery = bestseller,
+				Nowosci = nowosci
+			};
+
+
+            return View(vm);
         }
 
 		public ActionResult StronyStatyczne ( string nazwa )
