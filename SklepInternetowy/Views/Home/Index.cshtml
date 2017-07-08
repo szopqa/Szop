@@ -54,47 +54,24 @@
 
 <section>
     <ul class="KursyTrzyKolumny duzaLista Kursy">
-        <li>
-            <article>
-                <a class="dodajDoKoszykaLink" href="link">
-                    <img src="../Content/Images/koszyk.png" />
-                </a>
-                <a class="kursSzczegolyLink" href="link">
-                    <div class="newFlag"></div>
-                    <img class="kurs" src="../Content/Kursy/obrazekaspnet.png" />
-                    <h1>
-                        Tutaj będzie tytuł
-                    </h1>
-                </a>
-            </article>
-        </li>
-        <li>
-            <article>
-                <a class="dodajDoKoszykaLink" href="link">
-                    <img src="../Content/Images/koszyk.png" />
-                </a>
-                <a class="kursSzczegolyLink" href="link">
-                    <div class="newFlag"></div>
-                    <img class="kurs" src="../Content/Kursy/obrazekcsharp.png" />
-                    <h1>
-                        Tutaj będzie tytuł
-                    </h1>
-                </a>
-            </article>
-        </li>
-        <li>
-            <article>
-                <a class="dodajDoKoszykaLink" href="link">
-                    <img src="../Content/Images/koszyk.png" />
-                </a>
-                <a class="kursSzczegolyLink" href="link">
-                    <div class="newFlag"></div>
-                    <img class="kurs" src="../Content/Kursy/obrazekmvc.png" />
-                    <h1>
-                        Tutaj będzie tytuł
-                    </h1>
-                </a>
-            </article>
-        </li>
+
+        @foreach(var kategoria in Model.Kategorie )
+        {
+            <li>
+                <article>
+                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk", new { id=kategoria.KategoriaID} )">
+                        <img src="../Content/Images/koszyk.png" />
+                    </a>
+                    <a class="kursSzczegolyLink" href="link">
+                        <div class="newFlag"></div>
+                        <img class="kurs" src="@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony)" />
+                        <h1>
+                            @kategoria.NazwaKategorii
+                        </h1>
+                    </a>
+                </article>
+            </li>
+        }
+
     </ul>
 </section>
