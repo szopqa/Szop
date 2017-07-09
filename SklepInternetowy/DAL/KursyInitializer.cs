@@ -52,7 +52,7 @@ namespace SklepInternetowy.DAL
 
 			kursy.ForEach ( k => context.Kursy.AddOrUpdate ( k ) );
 			context.SaveChanges ( );
-
+			
 		}
 
 

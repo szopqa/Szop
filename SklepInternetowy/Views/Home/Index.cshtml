@@ -39,7 +39,7 @@
                         <img src="../Content/Images/koszyk.png" />
                     </a>
                     <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly","Kursy",new { id = nowosc.KursId } )">
-                        <div class="bestsellerFlag"></div>
+                        <div class="newFlag"></div>
                         <img class="kurs" src="@Url.ObrazkiSciezka(nowosc.NazwaPlikuObrazka)" />
                         <h1>
                             @nowosc.TytulKursu - @nowosc.AutorKursu
@@ -52,21 +52,23 @@
     </ul>
 </section>
 
-<section>
-    <ul class="KursyTrzyKolumny duzaLista Kursy">
 
-        @foreach(var kategoria in Model.Kategorie )
+<!--Bestsellery-->
+<section>
+    <ul class="KursyTrzyKolumny duzaListaKursy">
+
+        @foreach ( var bestseller in Model.Bestsellery)
         {
             <li>
                 <article>
-                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk", new { id=kategoria.KategoriaID} )">
+                    <a class="dodajDoKoszykaLink" href="@Url.Action("DodajDoKoszyka","Koszyk",new { id = bestseller.KursId } )">
                         <img src="../Content/Images/koszyk.png" />
                     </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="kurs" src="@Url.IkonyKategoriiSciezka(kategoria.NazwaPlikuIkony)" />
+                    <a class="kursSzczegolyLink" href="@Url.Action("Szczegoly","Kursy",new { id = bestseller.KursId } )">
+                        <div class="bestsellerFlag"></div>
+                        <img class="kurs" src="@Url.ObrazkiSciezka(bestseller.NazwaPlikuObrazka)" />
                         <h1>
-                            @kategoria.NazwaKategorii
+                            @bestseller.TytulKursu - @bestseller.AutorKursu
                         </h1>
                     </a>
                 </article>
@@ -75,3 +77,4 @@
 
     </ul>
 </section>
+    
